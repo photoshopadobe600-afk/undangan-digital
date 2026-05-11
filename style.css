@@ -13,6 +13,15 @@ body{
     background:#ffffff;
     overflow-x:hidden;
     color:#444;
+    width:100%;
+}
+
+/* AGAR GAMBAR & IFRAME RESPONSIVE */
+
+img,
+iframe{
+    max-width:100%;
+    display:block;
 }
 
 /* OPENING */
@@ -20,6 +29,7 @@ body{
 .opening{
     position:fixed;
     inset:0;
+
     background:
     linear-gradient(rgba(255,255,255,.92), rgba(255,255,255,.92)),
     url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1200&auto=format&fit=crop');
@@ -33,22 +43,22 @@ body{
     justify-content:center;
     align-items:center;
 
-    padding:25px;
+    padding:20px;
 }
 
 .opening-card{
     width:100%;
-    max-width:380px;
+    max-width:400px;
 
-    background:rgba(255,255,255,.8);
+    background:rgba(255,255,255,.82);
 
     backdrop-filter:blur(10px);
 
     border:1px solid rgba(212,175,55,.3);
 
-    border-radius:30px;
+    border-radius:28px;
 
-    padding:40px 30px;
+    padding:35px 25px;
 
     text-align:center;
 
@@ -60,6 +70,7 @@ body{
     letter-spacing:3px;
     color:#b8923f;
     margin-bottom:10px;
+    font-size:14px;
 }
 
 .opening h1{
@@ -67,6 +78,7 @@ body{
     font-size:60px;
     color:#c7a14d;
     margin-bottom:20px;
+    line-height:1.1;
 }
 
 /* NAMA TAMU */
@@ -106,18 +118,27 @@ button{
     padding:14px;
     border:none;
     border-radius:15px;
+
     background:linear-gradient(to right,#d4af37,#f4df9d);
+
     color:#fff;
     font-size:15px;
     font-weight:600;
+
     cursor:pointer;
+
+    transition:.3s;
+}
+
+button:hover{
+    transform:translateY(-2px);
 }
 
 /* MAIN */
 
 .main{
     display:none;
-    opacity: 0;
+    opacity:0;
 }
 
 /* HERO */
@@ -131,7 +152,7 @@ button{
 
     text-align:center;
 
-    padding:30px;
+    padding:30px 20px;
 
     background:
     linear-gradient(rgba(255,255,255,.75),rgba(255,255,255,.75)),
@@ -145,6 +166,7 @@ button{
 
 .hero::before{
     content:'';
+
     position:absolute;
 
     width:300px;
@@ -161,6 +183,7 @@ button{
 .hero-content{
     position:relative;
     z-index:2;
+    width:100%;
 }
 
 .hero h5{
@@ -168,6 +191,7 @@ button{
     color:#c6a14b;
     font-weight:500;
     margin-bottom:10px;
+    font-size:14px;
 }
 
 .hero h1{
@@ -179,14 +203,14 @@ button{
 
 .hero p{
     margin-top:18px;
-    font-size:15px;
+    font-size:16px;
     color:#666;
 }
 
 /* SECTION */
 
 .section{
-    padding:80px 25px;
+    padding:80px 20px;
     text-align:center;
 }
 
@@ -199,19 +223,23 @@ button{
     font-size:55px;
     color:#c6a14b;
     margin-bottom:10px;
+    line-height:1.2;
 }
 
 .desc{
     color:#666;
-    max-width:600px;
+    max-width:700px;
     margin:auto;
-    line-height:1.8;
+    line-height:1.9;
+    font-size:15px;
 }
+
+/* COUPLE */
 
 .couple{
     display:flex;
     flex-direction:column;
-    gap:30px;
+    gap:25px;
     margin-top:45px;
 }
 
@@ -219,7 +247,9 @@ button{
     background:#fff;
     border-radius:30px;
     padding:35px 25px;
+
     box-shadow:0 8px 25px rgba(0,0,0,.05);
+
     border:1px solid rgba(212,175,55,.2);
 }
 
@@ -228,42 +258,52 @@ button{
     height:130px;
     border-radius:50%;
     object-fit:cover;
+
     border:5px solid #f4df9d;
-    margin-bottom:20px;
+
+    margin:0 auto 20px;
 }
 
 .card h2{
     font-family:'Great Vibes',cursive;
     color:#c6a14b;
-    font-size:45px;
+    font-size:42px;
+    line-height:1.2;
 }
 
 .card p{
     margin-top:10px;
     font-size:14px;
     color:#666;
+    line-height:1.8;
 }
 
 /* EVENT */
 
 .event-box{
     margin-top:40px;
+
     background:#fff;
-    padding:35px;
+
+    padding:35px 25px;
+
     border-radius:30px;
+
     border:1px solid rgba(212,175,55,.2);
+
     box-shadow:0 8px 25px rgba(0,0,0,.05);
 }
 
 .event-box h3{
     color:#c6a14b;
     margin-bottom:15px;
-    font-size:25px;
+    font-size:24px;
 }
 
 .event-box p{
     line-height:1.9;
     color:#666;
+    font-size:15px;
 }
 
 /* MAP */
@@ -275,10 +315,16 @@ button{
     box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
 
+.map iframe{
+    width:100%;
+    height:300px;
+    border:0;
+}
+
 /* FOOTER */
 
 .footer{
-    padding:50px 25px;
+    padding:60px 20px;
     text-align:center;
     background:#faf7f2;
 }
@@ -292,40 +338,133 @@ button{
 
 .footer p{
     color:#777;
+    line-height:1.8;
+}
+
+/* TABLET */
+
+@media (max-width:768px){
+
+    .hero h1{
+        font-size:62px;
+    }
+
+    .title{
+        font-size:50px;
+    }
+
+    .card h2{
+        font-size:38px;
+    }
+
 }
 
 /* MOBILE */
 
-@media(max-width:480px){
+@media (max-width:480px){
 
-.hero h1{
-    font-size:58px;
+    .opening-card{
+        padding:30px 20px;
+        border-radius:24px;
+    }
+
+    .opening h1{
+        font-size:48px;
+    }
+
+    .guest{
+        font-size:32px;
+    }
+
+    .hero{
+        padding:20px;
+    }
+
+    .hero h1{
+        font-size:50px;
+    }
+
+    .hero h5{
+        font-size:12px;
+        letter-spacing:3px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .section{
+        padding:65px 18px;
+    }
+
+    .title{
+        font-size:42px;
+    }
+
+    .desc{
+        font-size:14px;
+    }
+
+    .card{
+        padding:28px 20px;
+    }
+
+    .card img{
+        width:110px;
+        height:110px;
+    }
+
+    .card h2{
+        font-size:34px;
+    }
+
+    .event-box{
+        padding:28px 20px;
+    }
+
+    .event-box h3{
+        font-size:22px;
+    }
+
+    .footer h2{
+        font-size:42px;
+    }
+
 }
 
-.title{
-    font-size:48px;
+/* MOBILE KECIL */
+
+@media (max-width:360px){
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .title{
+        font-size:36px;
+    }
+
+    .opening h1{
+        font-size:42px;
+    }
+
+    .guest{
+        font-size:28px;
+    }
+
 }
 
-.card h2{
-    font-size:38px;
+/* ANIMASI */
+
+.fade-in{
+    opacity:1 !important;
 }
 
-.guest{
-    font-size:34px;
+.fade-out{
+    opacity:0 !important;
 }
 
-}
-
-/* ANIMASI FADE */
-
-.fade-in {
-    opacity: 1 !important;
-}
-
-.fade-out {
-    opacity: 0 !important;
-}
-
-.opening, .main {
-    transition: opacity 0.8s ease-in-out;
+.opening,
+.main{
+    transition:opacity .8s ease-in-out;
 }
