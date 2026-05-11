@@ -1,3 +1,5 @@
+/* UPDATE NAMA */
+
 function updateNama(){
 
     let nama = document.getElementById("namaTamu").value;
@@ -10,37 +12,41 @@ function updateNama(){
 
 }
 
-/* AMBIL AUDIO */
-
-const music = document.getElementById("background-music");
-
 /* BUKA UNDANGAN */
 
 function bukaUndangan(){
 
     const opening = document.getElementById("opening");
     const main = document.getElementById("mainContent");
+    const music = document.getElementById("background-music");
 
-    // play music
+    // PLAY MUSIC LANGSUNG SETELAH KLIK
     if(music){
 
         music.volume = 0.7;
+        music.loop = true;
 
-        music.play()
-        .then(() => {
+        const playPromise = music.play();
 
-            console.log("Musik berhasil diputar");
+        if(playPromise !== undefined){
 
-        })
-        .catch((err) => {
+            playPromise
+            .then(() => {
 
-            console.log("Gagal play:", err);
+                console.log("Musik diputar");
 
-        });
+            })
+            .catch((error) => {
+
+                console.log("Autoplay gagal:", error);
+
+            });
+
+        }
 
     }
 
-    // animasi fade
+    // ANIMASI
     opening.classList.add("fade-out");
 
     main.style.display = "block";
@@ -52,3 +58,5 @@ function bukaUndangan(){
         main.classList.add("fade-in");
 
     }, 800);
+
+}
