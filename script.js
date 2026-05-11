@@ -1,5 +1,3 @@
-/* UPDATE NAMA */
-
 function updateNama(){
 
     let nama = document.getElementById("namaTamu").value;
@@ -12,26 +10,60 @@ function updateNama(){
 
 }
 
+/* MUSIC */
+
+const music = document.getElementById("background-music");
+
+if(music){
+
+    // volume musik
+    music.volume = 0.7;
+
+    // paksa looping
+    music.loop = true;
+
+    // jika browser menghentikan lagu
+    music.addEventListener("ended", function(){
+
+        music.currentTime = 0;
+        music.play();
+
+    });
+
+}
+
 /* BUKA UNDANGAN */
 
 function bukaUndangan(){
 
-    document.getElementById("opening").classList.add("fade-out");
+    const opening = document.getElementById("opening");
+    const main = document.getElementById("mainContent");
 
-    document.getElementById("mainContent").style.display = "block";
+    // animasi fade out
+    opening.classList.add("fade-out");
+
+    // tampilkan konten
+    main.style.display = "block";
 
     setTimeout(() => {
 
-        document.getElementById("opening").style.display = "none";
+        opening.style.display = "none";
 
-        document.getElementById("mainContent").classList.add("fade-in");
+        main.classList.add("fade-in");
 
-        // Putar musik setelah animasi
-        const music = document.getElementById("background-music");
+        // play musik
         if (music) {
-            music.play().catch(error => {
-                console.log("Autoplay diblokir, musik akan mulai setelah interaksi pengguna.");
+
+            music.play().then(() => {
+
+                console.log("Musik diputar");
+
+            }).catch(error => {
+
+                console.log("Autoplay diblokir:", error);
+
             });
+
         }
 
     }, 800);
