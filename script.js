@@ -16,19 +16,24 @@ function updateNama(){
 
 function bukaUndangan(){
 
-    const opening = document.getElementById("opening");
-    const main = document.getElementById("mainContent");
+    document.getElementById("opening").classList.add("fade-out");
 
-    opening.style.opacity = "0";
-    opening.style.transition = "1s";
+    document.getElementById("mainContent").style.display = "block";
 
     setTimeout(() => {
 
-        opening.style.display = "none";
+        document.getElementById("opening").style.display = "none";
 
-        main.style.display = "block";
-        main.classList.add("fade-in");
+        document.getElementById("mainContent").classList.add("fade-in");
 
-    }, 1000);
+        // Putar musik setelah animasi
+        const music = document.getElementById("background-music");
+        if (music) {
+            music.play().catch(error => {
+                console.log("Autoplay diblokir, musik akan mulai setelah interaksi pengguna.");
+            });
+        }
+
+    }, 800);
 
 }
