@@ -10,27 +10,9 @@ function updateNama(){
 
 }
 
-/* MUSIC */
+/* AMBIL AUDIO */
 
 const music = document.getElementById("background-music");
-
-if(music){
-
-    // volume musik
-    music.volume = 0.7;
-
-    // paksa looping
-    music.loop = true;
-
-    // jika browser menghentikan lagu
-    music.addEventListener("ended", function(){
-
-        music.currentTime = 0;
-        music.play();
-
-    });
-
-}
 
 /* BUKA UNDANGAN */
 
@@ -39,10 +21,28 @@ function bukaUndangan(){
     const opening = document.getElementById("opening");
     const main = document.getElementById("mainContent");
 
-    // animasi fade out
+    // play music
+    if(music){
+
+        music.volume = 0.7;
+
+        music.play()
+        .then(() => {
+
+            console.log("Musik berhasil diputar");
+
+        })
+        .catch((err) => {
+
+            console.log("Gagal play:", err);
+
+        });
+
+    }
+
+    // animasi fade
     opening.classList.add("fade-out");
 
-    // tampilkan konten
     main.style.display = "block";
 
     setTimeout(() => {
@@ -51,21 +51,4 @@ function bukaUndangan(){
 
         main.classList.add("fade-in");
 
-        // play musik
-        if (music) {
-
-            music.play().then(() => {
-
-                console.log("Musik diputar");
-
-            }).catch(error => {
-
-                console.log("Autoplay diblokir:", error);
-
-            });
-
-        }
-
     }, 800);
-
-}
