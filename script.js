@@ -16,8 +16,19 @@ function updateNama(){
 
 function bukaUndangan(){
 
-    document.getElementById("opening").style.display = "none";
+    const opening = document.getElementById("opening");
+    const main = document.getElementById("mainContent");
 
-    document.getElementById("mainContent").style.display = "block";
+    opening.style.opacity = "0";
+    opening.style.transition = "1s";
+
+    setTimeout(() => {
+
+        opening.style.display = "none";
+
+        main.style.display = "block";
+        main.classList.add("fade-in");
+
+    }, 1000);
 
 }
